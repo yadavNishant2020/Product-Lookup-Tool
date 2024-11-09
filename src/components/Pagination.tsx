@@ -39,22 +39,22 @@ const Pagination: React.FC<PaginationProps> = ({
 
   let lastPage = paginationRange[paginationRange.length - 1] as number;
   return (
-    <ul className={`flex list-none mt-8 ${className} text-white`}>
+    <ul className={`flex list-none mt-8 ${className} text-xl`}>
       <li
         className={`pagination-item ${currentPage === 1 ? 'pointer-events-none opacity-50' : ''}`}
         onClick={onPrevious}
       >
-        <div className="arrow left" />
+        <div className="arrow left text-xl " />
       </li>
       {paginationRange.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
-          return <li key={index} className="pagination-item dots">&#8230;</li>;
+          return <li key={index} className="pagination-item dots text-xl">&#8230;</li>;
         }
 
         return (
           <li
             key={index}
-            className={`pagination-item ${pageNumber === currentPage ? 'bg-gray-300' : ''}`}
+            className={`pagination-item ${pageNumber === currentPage ? 'bg-gray-300 text-xl' : ''}`}
             onClick={() => onPageChange(pageNumber as number)}
           >
             {pageNumber}
@@ -62,10 +62,10 @@ const Pagination: React.FC<PaginationProps> = ({
         );
       })}
       <li
-        className={`pagination-item ${currentPage === lastPage ? 'pointer-events-none opacity-50' : ''}`}
+        className={`pagination-item ${currentPage === lastPage ? 'pointer-events-none opacity-50 text-xl' : ''}`}
         onClick={onNext}
       >
-        <div className="arrow right" />
+        <div className="arrow right text-xl" />
       </li>
     </ul>
   );
