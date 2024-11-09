@@ -1,51 +1,42 @@
-# React + TypeScript + Vite
+# Product Lookup Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Product Lookup Tool built with React, TypeScript, and Vite. It allows users to search for products and view detailed information about each product in a modal.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for products using a search term
+- Display product details in a modal
+- Pagination for product results
+- Loading spinner while fetching data
+- Error handling for API calls
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js (version 14 or higher)
+- npm (version 6 or higher) or yarn (version 1 or higher)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Installation
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clone the repository:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   git clone https://github.com/your-username/product-lookup-tool.git
+   cd product-lookup-tool```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# Product-Lookup-Tool
+2. Install the dependencies:
+
+  ```bash
+  npm install
+  ```
+
+### Summary
+- **Project Overview**: Provides an overview of the project and its features.
+- **Setup Instructions**: Includes instructions for cloning the repository, installing dependencies, running the development server, building for production, and linting.
+- **Project Structure**: Describes the structure of the project and the purpose of each directory and file.
+- **Dependencies**: Lists the dependencies and dev dependencies required for the project.
+- **License**: Specifies the license for the project.
+
+This  file provides comprehensive setup instructions and information about the project, making it easy for others to understand and contribute to the project.
+
