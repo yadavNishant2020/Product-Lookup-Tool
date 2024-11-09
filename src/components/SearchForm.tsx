@@ -20,7 +20,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ searchTerm, setSearchTerm, hand
   };
 
   return (
-    <form onSubmit={handleSearch} className="mb-8">
+    <form onSubmit={handleSearch} className="mb-8 flex">
       <input
         type="text"
         placeholder="Search for a product"
