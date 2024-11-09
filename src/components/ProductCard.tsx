@@ -1,19 +1,18 @@
 import React from 'react';
+import { Product } from '../types';
 
 interface ProductCardProps {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    rating: number;
-    thumbnail: string;
-    availabilityStatus: string;
-  };
+  product: Product;
+  onClick: (product: Product) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
   return (
-    <div key={product.id} className="bg-black text-white shadow-md rounded-md p-4 w-[30vw] h-[55vh] flex flex-col">
+    <div
+      key={product.id}
+      className="bg-black text-white shadow-md rounded-md p-4 w-[30vw] h-[55vh] flex flex-col cursor-pointer"
+      onClick={() => onClick(product)}
+    >
       <img src={product.thumbnail} alt={product.title} className="w-full h-40 object-contain rounded-md mb-4" />
       <h2 className="text-xl font-bold mb-2">{product.title}</h2>
       <p className="text-lg font-medium mb-2">Price: ${product.price}</p>

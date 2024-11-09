@@ -4,16 +4,8 @@ import SearchForm from './components/SearchForm';
 import ProductCard from './components/ProductCard';
 import Loader from './components/Loader';
 import Pagination from './components/Pagination';
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  rating: number;
-  stock: number;
-  thumbnail: string;
-  availabilityStatus: string;
-}
+import Modal from './components/Modal';
+import { Product } from './types';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,6 +13,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const productsPerPage = 6;
 
   useEffect(() => {
@@ -53,6 +46,14 @@ function App() {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gradient-bg p-10 text-white">
       <h1 className="text-3xl font-bold mb-8">Product Lookup Tool</h1>
@@ -62,7 +63,7 @@ function App() {
       {error && <div className="mb-4 text-red-500">{error}</div>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} onClick={handleProductClick} />
         ))}
       </div>
       <Pagination
@@ -71,6 +72,7 @@ function App() {
         currentPage={currentPage}
         pageSize={productsPerPage}
       />
+      {selectedProduct && <Modal product={selectedProduct} onClose={handleCloseModal} />}
     </div>
   );
 }
