@@ -4,6 +4,7 @@ interface SearchFormProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   handleSearch: (e: React.FormEvent) => void;
+  
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ searchTerm, setSearchTerm, handleSearch }) => {
@@ -16,7 +17,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ searchTerm, setSearchTerm, hand
     }
     debounceRef.current = setTimeout(() => {
       setSearchTerm(value);
-    }, 300);
+    }, 3000);
   };
 
   return (

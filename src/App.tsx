@@ -38,8 +38,11 @@ function App() {
 
       fetchProducts();
     }
+    if(searchTerm.length <= 0){
+      setProducts([]);
+    };
   }, [searchTerm]);
-
+    
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
